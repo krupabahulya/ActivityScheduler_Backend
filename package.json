@@ -1,0 +1,31 @@
+{
+  "name": "activityscheduler_backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krupabahulya/ActivityScheduler_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krupabahulya/ActivityScheduler_Backend/issues"
+  },
+  "homepage": "https://github.com/krupabahulya/ActivityScheduler_Backend#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.5"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "kill-port": "^2.0.0",
+    "nodemon": "^2.0.16"
+  }
+}
