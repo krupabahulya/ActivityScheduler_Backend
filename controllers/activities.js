@@ -2,12 +2,12 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ErrorResponse from "../utils/ErrorResponse.js";
 import activity from "../models/activity.js";
 
-export const getAllactivitys = asyncHandler(async (req, res, next) => {
+export const getAllActivities = asyncHandler(async (req, res, next) => {
   const activities = await activity.find().populate("creator");
   res.json(activities);
 });
 
-export const createactivity = asyncHandler(async (req, res) => {
+export const createActivity = asyncHandler(async (req, res) => {
   const {
     body,
     user: { _id: creator },
@@ -17,7 +17,7 @@ export const createactivity = asyncHandler(async (req, res) => {
   res.status(201).json(newactivity);
 });
 
-export const getSingleactivity = asyncHandler(async (req, res) => {
+export const getSingleActivity = asyncHandler(async (req, res) => {
   const {
     params: { id },
   } = req;
@@ -27,7 +27,7 @@ export const getSingleactivity = asyncHandler(async (req, res) => {
   res.send(activity);
 });
 
-export const updateactivity = asyncHandler(async (req, res) => {
+export const updateActivity = asyncHandler(async (req, res) => {
   const {
     body,
     params: { id },
@@ -38,13 +38,13 @@ export const updateactivity = asyncHandler(async (req, res) => {
     throw new ErrorResponse(`activity with id of ${id} doesn't exist`, 404);
   if (found.creator.toString() !== userId.toString())
     throw new ErrorResponse(`Only the owner of the activity can edit`, 403);
-  const updatedactivity = await activity.findOneAndUpdate({ _id: id }, body, {
+  const updatedActivity = await activity.findOneAndUpdate({ _id: id }, body, {
     new: true,
   });
-  res.json(updatedactivity);
+  res.json(updatedActivity);
 });
 
-export const deleteactivity = asyncHandler(async (req, res) => {
+export const deleteActivity = asyncHandler(async (req, res) => {
   const {
     params: { id },
     user: { _id: userId },
