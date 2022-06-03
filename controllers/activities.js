@@ -12,9 +12,9 @@ export const createActivity = asyncHandler(async (req, res) => {
     body,
     user: { _id: creator },
   } = req;
-  let newactivity = await activity.create({ ...body, creator });
-  newactivity = await newactivity.populate("creator");
-  res.status(201).json(newactivity);
+  let newActivity = await activity.create({ ...body, creator });
+  newActivity = await newActivity.populate("creator");
+  res.status(201).json(newActivity);
 });
 
 export const getSingleActivity = asyncHandler(async (req, res) => {
